@@ -1,0 +1,670 @@
+{
+    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT ",
+    "version": "eosio::abi/1.1",
+    "types": [],
+    "structs": [
+        {
+            "name": "accounts",
+            "base": "",
+            "fields": [
+                {
+                    "name": "dnft_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "amount",
+                    "type": "asset"
+                }
+            ]
+        },
+        {
+            "name": "addvalidator",
+            "base": "",
+            "fields": [
+                {
+                    "name": "validator",
+                    "type": "name"
+                },
+                {
+                    "name": "email",
+                    "type": "string"
+                },
+                {
+                    "name": "category",
+                    "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "bids",
+            "base": "",
+            "fields": [
+                {
+                    "name": "sale_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "token_name",
+                    "type": "name"
+                },
+                {
+                    "name": "category",
+                    "type": "name"
+                },
+                {
+                    "name": "seller",
+                    "type": "name"
+                },
+                {
+                    "name": "percent_share",
+                    "type": "asset"
+                },
+                {
+                    "name": "base_price",
+                    "type": "asset"
+                },
+                {
+                    "name": "current_bid",
+                    "type": "asset"
+                },
+                {
+                    "name": "current_bidder",
+                    "type": "name"
+                },
+                {
+                    "name": "expiration",
+                    "type": "time_point_sec"
+                }
+            ]
+        },
+        {
+            "name": "burn",
+            "base": "",
+            "fields": [
+                {
+                    "name": "owner",
+                    "type": "name"
+                },
+                {
+                    "name": "category",
+                    "type": "name"
+                },
+                {
+                    "name": "token_name",
+                    "type": "name"
+                },
+                {
+                    "name": "quantity",
+                    "type": "asset"
+                }
+            ]
+        },
+        {
+            "name": "buyshare",
+            "base": "",
+            "fields": [
+                {
+                    "name": "from",
+                    "type": "name"
+                },
+                {
+                    "name": "to",
+                    "type": "name"
+                },
+                {
+                    "name": "quantity",
+                    "type": "asset"
+                },
+                {
+                    "name": "memo",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "categories",
+            "base": "",
+            "fields": [
+                {
+                    "name": "category",
+                    "type": "name"
+                },
+                {
+                    "name": "validator_ids",
+                    "type": "uint64[]"
+                }
+            ]
+        },
+        {
+            "name": "close",
+            "base": "",
+            "fields": [
+                {
+                    "name": "owner",
+                    "type": "name"
+                },
+                {
+                    "name": "dnft_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "closebid",
+            "base": "",
+            "fields": [
+                {
+                    "name": "seller",
+                    "type": "name"
+                },
+                {
+                    "name": "sale_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "closesale",
+            "base": "",
+            "fields": [
+                {
+                    "name": "seller",
+                    "type": "name"
+                },
+                {
+                    "name": "sale_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "create",
+            "base": "",
+            "fields": [
+                {
+                    "name": "issuer",
+                    "type": "name"
+                },
+                {
+                    "name": "category",
+                    "type": "name"
+                },
+                {
+                    "name": "token_name",
+                    "type": "name"
+                },
+                {
+                    "name": "burnable",
+                    "type": "bool"
+                },
+                {
+                    "name": "base_uri",
+                    "type": "string"
+                },
+                {
+                    "name": "span",
+                    "type": "uint8"
+                },
+                {
+                    "name": "origin_hash",
+                    "type": "checksum256"
+                }
+            ]
+        },
+        {
+            "name": "delvalidator",
+            "base": "",
+            "fields": [
+                {
+                    "name": "validator",
+                    "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "dnftstats",
+            "base": "",
+            "fields": [
+                {
+                    "name": "burnable",
+                    "type": "bool"
+                },
+                {
+                    "name": "issuer",
+                    "type": "name"
+                },
+                {
+                    "name": "token_name",
+                    "type": "name"
+                },
+                {
+                    "name": "dnft_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "current_supply",
+                    "type": "asset"
+                },
+                {
+                    "name": "issued_supply",
+                    "type": "asset"
+                },
+                {
+                    "name": "base_uri",
+                    "type": "string"
+                },
+                {
+                    "name": "origin_hash",
+                    "type": "checksum256"
+                },
+                {
+                    "name": "span",
+                    "type": "uint8"
+                },
+                {
+                    "name": "validated",
+                    "type": "bool"
+                },
+                {
+                    "name": "validated_by",
+                    "type": "pair_uint64_bool[]"
+                }
+            ]
+        },
+        {
+            "name": "issue",
+            "base": "",
+            "fields": [
+                {
+                    "name": "to",
+                    "type": "name"
+                },
+                {
+                    "name": "category",
+                    "type": "name"
+                },
+                {
+                    "name": "token_name",
+                    "type": "name"
+                },
+                {
+                    "name": "quantity",
+                    "type": "asset"
+                },
+                {
+                    "name": "memo",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "lists",
+            "base": "",
+            "fields": [
+                {
+                    "name": "sale_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "token_name",
+                    "type": "name"
+                },
+                {
+                    "name": "category",
+                    "type": "name"
+                },
+                {
+                    "name": "seller",
+                    "type": "name"
+                },
+                {
+                    "name": "per_percent_amt",
+                    "type": "asset"
+                },
+                {
+                    "name": "percent_share",
+                    "type": "asset"
+                },
+                {
+                    "name": "expiration",
+                    "type": "time_point_sec"
+                }
+            ]
+        },
+        {
+            "name": "listsale",
+            "base": "",
+            "fields": [
+                {
+                    "name": "seller",
+                    "type": "name"
+                },
+                {
+                    "name": "category",
+                    "type": "name"
+                },
+                {
+                    "name": "token_name",
+                    "type": "name"
+                },
+                {
+                    "name": "percent_share",
+                    "type": "asset"
+                },
+                {
+                    "name": "per_percent_amt",
+                    "type": "asset"
+                },
+                {
+                    "name": "expiration",
+                    "type": "time_point_sec"
+                }
+            ]
+        },
+        {
+            "name": "owners",
+            "base": "",
+            "fields": [
+                {
+                    "name": "owner",
+                    "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "pair_uint64_bool",
+            "base": "",
+            "fields": [
+                {
+                    "name": "key",
+                    "type": "uint64"
+                },
+                {
+                    "name": "value",
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "name": "setconfig",
+            "base": "",
+            "fields": [
+                {
+                    "name": "version",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "startbid",
+            "base": "",
+            "fields": [
+                {
+                    "name": "seller",
+                    "type": "name"
+                },
+                {
+                    "name": "category",
+                    "type": "name"
+                },
+                {
+                    "name": "token_name",
+                    "type": "name"
+                },
+                {
+                    "name": "percent_share",
+                    "type": "asset"
+                },
+                {
+                    "name": "base_price",
+                    "type": "asset"
+                },
+                {
+                    "name": "expiration",
+                    "type": "time_point_sec"
+                }
+            ]
+        },
+        {
+            "name": "tokenconfigs",
+            "base": "",
+            "fields": [
+                {
+                    "name": "standard",
+                    "type": "name"
+                },
+                {
+                    "name": "version",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "transfer",
+            "base": "",
+            "fields": [
+                {
+                    "name": "from",
+                    "type": "name"
+                },
+                {
+                    "name": "to",
+                    "type": "name"
+                },
+                {
+                    "name": "category",
+                    "type": "name"
+                },
+                {
+                    "name": "token_name",
+                    "type": "name"
+                },
+                {
+                    "name": "percent_share",
+                    "type": "asset"
+                },
+                {
+                    "name": "memo",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "uids",
+            "base": "",
+            "fields": [
+                {
+                    "name": "dnft_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "validator_id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "validate",
+            "base": "",
+            "fields": [
+                {
+                    "name": "validator",
+                    "type": "name"
+                },
+                {
+                    "name": "category",
+                    "type": "name"
+                },
+                {
+                    "name": "token_name",
+                    "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "validators",
+            "base": "",
+            "fields": [
+                {
+                    "name": "validator_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "validator",
+                    "type": "name"
+                },
+                {
+                    "name": "email",
+                    "type": "string"
+                },
+                {
+                    "name": "categories",
+                    "type": "name[]"
+                },
+                {
+                    "name": "active",
+                    "type": "bool"
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "name": "addvalidator",
+            "type": "addvalidator",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "burn",
+            "type": "burn",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "buyshare",
+            "type": "buyshare",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "close",
+            "type": "close",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "closebid",
+            "type": "closebid",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "closesale",
+            "type": "closesale",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "create",
+            "type": "create",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "delvalidator",
+            "type": "delvalidator",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "issue",
+            "type": "issue",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "listsale",
+            "type": "listsale",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "setconfig",
+            "type": "setconfig",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "startbid",
+            "type": "startbid",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "transfer",
+            "type": "transfer",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "validate",
+            "type": "validate",
+            "ricardian_contract": ""
+        }
+    ],
+    "tables": [
+        {
+            "name": "accounts",
+            "type": "accounts",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "bids",
+            "type": "bids",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "categories",
+            "type": "categories",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "dnftstats",
+            "type": "dnftstats",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "lists",
+            "type": "lists",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "owners",
+            "type": "owners",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "tokenconfigs",
+            "type": "tokenconfigs",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "uids",
+            "type": "uids",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "validators",
+            "type": "validators",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        }
+    ],
+    "ricardian_clauses": [],
+    "variants": []
+}
