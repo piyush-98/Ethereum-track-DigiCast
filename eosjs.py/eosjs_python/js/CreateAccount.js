@@ -105,7 +105,7 @@ function create_account( creator_account, account_name, owner_public_key, active
             data: {
                 payer: creator_account,
                 receiver: account_name,
-                bytes: 2000//parseInt(buyrambytes_bytes)
+                bytes: 4000//parseInt(buyrambytes_bytes)
               },
 
           },{

@@ -46,6 +46,14 @@ dnfteos = Eos({
     'chain_id': '1eaa0824707c8c16bd25145493bf062aecddfeb56c736f6ba6397f3195f33c9f'
 })   
 
+vidvalidatoreos = Eos({
+	'http_address': 'https://jungle2.cryptolions.io:443',
+	'key_provider': '5Hrt8MPM2SWVPUXDskw3v2pS2x6QThL5ipiLdXEmYEMvTqCnNrG',
+    'chain_id': '1eaa0824707c8c16bd25145493bf062aecddfeb56c736f6ba6397f3195f33c9f'
+})   
+
+
+
 signedin=False
 signinacc = piyushtester # let piyushtester be liquid acc
 signedinaccName = 'bobzeptagram'
@@ -58,7 +66,7 @@ def createacct(_name):
 		'name': _name,
 		'owner_public_key': key_pair["public"],
 		'active_public_key': key_pair["public"],
-		'buyrambytes_bytes': 2000,
+		'buyrambytes_bytes': 4000,
 		'delegatebw_stake_net_quantity': '1.0000 EOS',
 		'delegatebw_stake_cpu_quantity': '1.0000 EOS',
 		'delegatebw_transfer': 0
@@ -130,44 +138,114 @@ def json_make(_from, mailid, _videoname, link, signer):
 
     s.quit()
     hash = check_sum(filename)
+    print(hash)
     return hash
+
+def validate(_token_name, signer):
+  signer.push_transaction('dnftversion1','validate',"vidvalidator",'active',{
+	"validator":"vidvalidator",
+	"category":"video",
+	"token_name":_token_name})
+
+def issue(authority, to, _token_name, quantity,signer):
+  signer.push_transaction('dnftversion1','issue',authority,'active',{
+	"to":to,
+	"category":"video",
+	"token_name":_token_name,
+	"quantity":quantity+".0000 PER",
+	"memo":"issuing"})
+
 
 
 #from = eos acc name
 # mailid = id of google signed in user
 # videoname= small name
 # link = youtube link
-def createMTO(_from, mailid, _videoname, link, signer):
+def createVTO(_from, mailid, _videoname, link, signer):
 
   hash = json_make(_from, mailid, _videoname, link, signer)
   signer.push_transaction('dnftversion1','create',_from,'active',{
 	"issuer":_from,
 	"category":"video",
 	"token_name":_videoname,
-	"burnable":1,
+	"burnable":True,
 	"base_uri":link,
 	"span":"10",
-	"origin_hash":hash})
+	"origin_hash":hash
+	})
+  # validate directly for now 
+  validate(_videoname,vidvalidatoreos)
+  # issue directly 100 PERs to creator
+  issue(_from, _from, _videoname, "100",signinacc)
+
+
+
+#validate 
+
+def startsale(seller, _videoname, percent_shares, per_percent_amt, signer):
+
+  signer.push_transaction('dnftversion1','listsale',seller,'active',{
+	"seller":seller,
+	"category":"video",
+	"token_name":_videoname,
+	"percent_share":percent_shares+ '.0000 PER',
+	"per_percent_amt":per_percent_amt+'.0000 VID',
+	"expiration":"2019-10-30T00:00:00"})
+
+
+def invest(_from, quantity, sale_id, seller, signer):
+
+  signer.push_transaction('dnfttoken123','transfer',_from,'active',{
+	"from":_from,
+	"to":"dnftversion1",
+	"quantity":quantity+ '.0000 VID',
+	"memo":sale_id+','+seller
+	})
+
+
 
 #dnftversion1
 
 #1. Create new acct, save acct name, keys and popup
 
-nk=createacct("alicetesting")	
-print(nk)
+# nk=createacct("alicetestinp")	
+# print(nk)
 
 #2. Sign in through acct name and 2nd key
-signin("alicetesting","5JCUiyyjjaGxWoNNyAnPYA6FTmAqEjSs9Jw5dkXpPMkTpaZzhvA")
+signin("alicetestinp","5Hyva2T2Rm9wQ9TdGgMDeBt757VW8T4gcwzb25QwFVZRyTSn7rj")
 
-#get sign in details
-# info = get_accPublickey(signedinaccName)
-# print(info)
+# #get sign in details
+info = get_accPublickey(signedinaccName)
+print(info)
 
-#View table
-# result = get_table("zeptagram123","stat","ZPT")
-# print(result)
 
-# transferVID("dnfttoken123","piyushtester","2.0001 VID",dnfteos)
+#give 100 VID = 100 Rs. signup bonus
+transferVID("dnfttoken123",signedinaccName,"100.0000 VID",dnfteos)
 
-#3. give mailid, vidname, youtube link
-createMTO(signedinaccName,"mailid","vidname","link",signinacc)
+#3. craete VTO, give mailid, vidname, youtube link
+createVTO(signedinaccName,"jsk1961998@gmail.com","bvpjs","youtube.com/bvpjs",signinacc)
+
+# # # My Video page
+print("MY VIDEO PAGE",end='\n')
+result = get_table("dnftversion1","accounts",signedinaccName)
+print(result)
+
+# #4. start sale give vidname, percent share and per percent amt
+startsale(signedinaccName,"bvpjs","51","1",signinacc)
+
+# #Hot offerings page
+print("HOT OFFERINGS PAGE",end='\n')
+result = get_table("dnftversion1","lists","dnftversion1")
+print(result)
+
+transferVID("dnfttoken123","piyushtester","100.0000 VID",dnfteos)
+
+# #5, any other user from other pc should be able to invest
+# # take investment amt 10 VID
+invest('piyushtester',"10", "3", "alicetestinp",piyushtester)
+
+# # My Video page
+print("MY VIDEO PAGE",end='\n')
+result = get_table("dnftversion1","accounts","piyushtester")
+print(result)
+
