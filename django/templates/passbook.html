@@ -1,0 +1,185 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Digicast</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="My Play Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- bootstrap -->
+<link href="{% static 'css/bootstrap.min.css' %}" rel='stylesheet' type='text/css' media="all" />
+<!-- //bootstrap -->
+<link href="{% static 'css/dashboard.css' %}" rel="stylesheet">
+<!-- Custom Theme files -->
+<link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css' media="all" />
+<script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+<!--start-smoth-scrolling-->
+<!-- fonts -->
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<!-- //fonts -->
+
+<style>
+#example3 {
+  /* border: 1px;
+  height:100px;
+  padding: 10px;
+  box-shadow: 5px 10px 18px #888888; */
+
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 2px 2px 2px #888888;
+  height:250px;
+  width:1300px;
+  margin-left:10px;
+}
+</style>
+
+
+</head>
+  <body style="background-color:black;">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:black;">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"><h1 style="color:#21ddee;"> <b>DIGICAST</h1></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+			<div class="top-search">
+				<form class="navbar-form navbar-right">
+					<input type="text" class="form-control" placeholder="Search...">
+					<input type="submit" value=" ">
+				</form>
+			</div>
+
+      <div class="header-top-right">
+				<div class="file">
+					<a href="#" ><img src="{% static 'images/user-images.png' %}" alt="" style="height:25px;"/></a>
+				</div>
+
+				<div class="clearfix"> </div>
+			</div>
+
+			<div class="header-top-right">
+				<div class="file">
+					<a href="#" style="margin-right:15px;"><img src="{% static 'images/Video-icon.png' %}" alt="" style="height:25px;"/></a>
+				</div>
+
+				<div class="clearfix"> </div>
+			</div>
+
+
+
+
+        </div>
+		<div class="clearfix"> </div>
+      </div>
+    </nav>
+
+        <div class="col-sm-3 col-md-2 sidebar">
+			<div class="top-navigation">
+				<div class="t-menu">MENU</div>
+				<div class="t-img">
+					<img src="{% static 'images/lines.png' %}" alt="" />
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+				<div class="drop-navigation drop-navigation">
+				  <ul class="nav nav-sidebar">
+					<li><a href="{% url 'index' %}" class="home-icon"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+
+          <li><a href="{% url 'trending' %}" class="user-icon"><span class="glyphicon glyphicon-home glyphicon-fire" aria-hidden="true"></span>Trending</a></li>
+          <li class=""><a href="{% url 'myvideo' %}" class="user-icon"><span class="glyphicon glyphicon-home glyphicon-facetime-video" aria-hidden="true"></span>My Videos</a></li>
+					<li><a href="{% url 'hotofferings' %}" class="user-icon"><span class="glyphicon glyphicon-home glyphicon-usd" aria-hidden="true"></span>Hot Offerings</a></li>
+
+					<li class="active"><a href="{% url 'passbook' %}" class="user-icon"><span class="glyphicon glyphicon-home glyphicon-book" aria-hidden="true"></span>Passbook</a></li>
+          <li><a href="history.html" class="user-icon"><span class="glyphicon glyphicon-home glyphicon-wrench" aria-hidden="true"></span>Settings</a></li>
+
+
+
+
+          <!-- <div class="side-bottom">
+						<div class="side-bottom-icons">
+							<ul class="nav2">
+
+                <li><a href="#" class="facebook"> </a></li>
+                <li><a href="#" class="facebook twitter"> </a></li>
+                <li><a href="#" class="facebook chrome"> </a></li>
+                <li><a href="#" class="facebook dribbble"> </a></li>
+
+							</ul>
+						</div>
+
+					</div> -->
+
+				</div>
+        </div>
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+			<div class="main-grids">
+
+
+
+<div id="example3">
+  <div style="margin-left:20px;">
+  <p style="color:white;font-size:50px;">Available Balance</p>
+  <span class="fa fa-inr" style="font-size:60px;color:#888888;"> 5500</span>
+  <br><br><br>
+  <button type="button" class="btn btn-default" style="font-size:20px;width:300px;">Send money to bank</button>
+  </div>
+</div>
+
+<br><h2 style="color:white;margin-left:10px;font-size:50px;"> History</h2><br>
+
+<div id="example3" style="height:50px;color:#888888;">
+  <div style="margin-left:20px;">
+    <h4>Bought 5 PER <span style="color:yellow;border: 1px solid;"> HARSHDEEP VID 2</span>  <span style="float:right;color:red;">-1500</span></h4>
+  </div>
+</div>
+<br>
+
+<div id="example3" style="height:50px;color:#888888;">
+  <div style="margin-left:20px;">
+    <h4>Reward for <span style="color:yellow;border: 1px solid;"> SETIND 2</span>  <span style="float:right;color:green;">+5000</span></h4>
+  </div>
+</div>
+
+<br>
+<div id="example3" style="height:50px;color:#888888;">
+  <div style="margin-left:20px;">
+    <h4>Added in wallet  <span style="float:right;color:green;">+1000</span></h4>
+  </div>
+</div>
+
+<br>
+
+
+    </div>
+			</div>
+			<!-- //footer -->
+
+		<div class="clearfix"> </div>
+	<div class="drop-menu">
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu4">
+		  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Regular link</a></li>
+		  <li role="presentation" class="disabled"><a role="menuitem" tabindex="-1" href="#">Disabled link</a></li>
+		  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another link</a></li>
+		</ul>
+	</div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+  </body>
+</html>
