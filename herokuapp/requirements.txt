@@ -25,7 +25,7 @@ chardet==3.0.4
 checkbox-support==0.22
 cmake==3.13.2.post1
 contextlib2==0.5.5
-cryptography==2.7
+cryptography==3.2
 dask==1.0.0
 decorator==4.3.0
 # eosjs-python==0.1.95
