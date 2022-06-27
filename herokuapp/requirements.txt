@@ -69,7 +69,7 @@ oauthlib==2.1.0
 python-dateutil==2.7.5
 python-firebase==1.2
 python-utils==2.3.0
-reportlab==3.3.0
+reportlab==3.5.55
 request==2018.11.20
 requests==2.20.1
 requests-oauthlib==1.0.0
